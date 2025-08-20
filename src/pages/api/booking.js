@@ -52,8 +52,8 @@ export default async function handler(req, res) {
       data: booking,
     });
   } catch (error) {
-    console.error("Error saving booking:", error);
-    
+    console.error("Error saving booking", error);
+
     return res.status(500).json({
       success: false,
       message: "Database error",
