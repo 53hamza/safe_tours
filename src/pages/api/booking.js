@@ -1,3 +1,4 @@
+export const runtime = "nodejs";
 import sequelize from "@/lib/db";
 import Booking from "@/models/Booking";
 
