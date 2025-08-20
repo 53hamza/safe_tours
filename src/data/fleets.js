@@ -1,0 +1,60 @@
+const fleets = [
+  {
+    id: 1,
+    image: "/images/dzire.png",
+    name: "Dzire",
+    rate: "₹12/km",
+    seater: "4",
+    type: "Sedan",
+  },
+  {
+    id: 2,
+    image: "/images/aura.png",
+    name: "Aura",
+    rate: "₹12/km",
+    seater: "4",
+    type: "Sedan",
+  },
+  {
+    id: 3,
+    image: "/images/ertiga.png",
+    name: "Ertiga",
+    rate: "₹14/km",
+    seater: "6",
+    type: "SUV",
+  },
+  {
+    id: 4,
+    image: "/images/innova.png",
+    name: "Innova",
+    rate: "₹18/km",
+    seater: "6",
+    type: "SUV",
+  },
+  {
+    id: 5,
+    image: "/images/crysta.png",
+    name: "Innova Crysta",
+    rate: "₹20/km",
+    seater: "7",
+    type: "SUV",
+  },
+  {
+    id: 6,
+    image: "/images/mini-bus.png",
+    name: "Mini Bus",
+    rate: "",
+    seater: "24 / 32 / 40 / 45 / 55",
+    type: "Mini Bus",
+  },
+  {
+    id: 7,
+    image: "/images/tempo.png",
+    name: "Tempo Traveller",
+    rate: "NA",
+    seater: "13 / 17",
+    type: "Tempo Travellers",
+  },
+];
+
+export default fleets;
