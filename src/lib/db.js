@@ -1,37 +1,43 @@
 // src/lib/db.js
 import { Sequelize } from "sequelize";
 
+// IMPORTANT: pg must be a dependency (not devDependency)
+import pg from "pg";
+
 const dialect = process.env.DB_DIALECT || "postgres";
 
-// Global caching for dev/hot-reload in Next.js
+// Reuse a single instance across hot reloads
 let sequelize;
 
 const buildSequelize = () => {
   const baseOptions = {
     dialect,
+    // Force Sequelize to use the pg driver explicitly
+    dialectModule: pg,
     logging: false,
     pool: {
-      max: 5, // small pool for serverless/local
+      max: 5,
       min: 0,
-      acquire: 10000,
+      acquire: 20000, // a bit higher to tolerate Neon cold wake
       idle: 10000,
     },
     dialectOptions: {},
   };
 
-  // SSL handling
+  // Enable SSL for Neon/production
   if (process.env.DB_SSL === "true") {
     baseOptions.dialectOptions.ssl = {
       require: true,
       rejectUnauthorized: false,
     };
-    // Some providers require this on connectionString too
   }
 
+  // Prefer single connection string if provided (recommended for Neon/Vercel)
   if (process.env.DATABASE_URL) {
     return new Sequelize(process.env.DATABASE_URL, baseOptions);
   }
 
+  // Fallback to discrete env vars (useful for local dev)
   return new Sequelize(
     process.env.DB_NAME,
     process.env.DB_USER,
