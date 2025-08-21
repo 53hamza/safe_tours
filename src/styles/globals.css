@@ -171,7 +171,7 @@ nav.navbar {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 50px;
 }
 
@@ -281,7 +281,7 @@ nav.navbar {
 .service-card:hover {
   /* transform: scale(1.1); */
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  border: 1px solid var(--primary-color)
+  border: 1px solid var(--primary-color);
 }
 
 /* end */
@@ -328,7 +328,6 @@ nav.navbar {
 }
 
 /* end */
-
 
 /* review */
 
@@ -378,7 +377,6 @@ nav.navbar {
   font-weight: 600;
   margin-bottom: 0;
 }
-
 
 /* whatsapp btn */
 
@@ -441,7 +439,6 @@ nav.navbar {
   background-color: #a94e04;
 } */
 
-
 .form-tabs {
   display: flex;
   justify-content: center;
@@ -461,6 +458,19 @@ nav.navbar {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  animation: pulse2 2s infinite;
+}
+
+@keyframes pulse2 {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
 }
 
 .tab-btn:hover {
@@ -514,6 +524,14 @@ nav.navbar {
 
 /* end */
 
+/* contact us */
+.contact-us-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* end */
+
 /* responsive column counts */
 @media (max-width: 1024px) {
   .reviews-masonry-section .masonry {
@@ -564,6 +582,11 @@ nav.navbar {
 
   .hero-para {
     max-width: 300px;
+  }
+
+  .contact-us-form {
+    align-items: center;
+    margin-bottom: 30px;
   }
 }
 

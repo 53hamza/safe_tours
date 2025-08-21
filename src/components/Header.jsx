@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -8,7 +7,7 @@ const navLinks = [
   { label: 'Services', path: '#services' },
   { label: 'Our Fleets', path: '#our-cars' },
   { label: 'Reviews', path: '#reviews' },
-  // { label: 'Contact', path: '/contact-us' },
+  { label: 'Contact', path: '/contact-us' },
 ]
 
 const Header = () => {
@@ -20,9 +19,6 @@ const Header = () => {
         {/* Left: Brand */}
         <Link className="navbar-brand m-0 p-0" href="/">
         <img src="/images/safe-logo-l.png" className='safe-logo'/>
-        {/* <img src="/images/safe-tp-logo.jpg" wid/> */}
-        {/* <Image src="/images/safe-logo.png" width={260} height={60} alt='logo'/> */}
-        {/* Safe Tours */}
         </Link>
 
         {/* Toggle button */}
@@ -55,7 +51,7 @@ const Header = () => {
 
           {/* Right: Book Now (visible only on large screens) */}
           <div className="book-now">
-            <button type="submit" className="primary-button book-now-btn">Book Now</button>
+            <Link href="#book-now" className="primary-button book-now-btn">Book Now</Link>
           </div>
         </div>
       </div>

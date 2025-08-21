@@ -6,8 +6,8 @@ import { FaInstagram, FaFacebookF } from "react-icons/fa";
 
 export default function Footer() {
   const companyName = "Safe Tours And Travels";
-  const logoSrc = "/images/safe-logo.svg"; // replace with your logo path
-  const mapUrl = "https://www.google.com/maps"; // replace with your Google Maps link
+  const logoSrc = "/images/safe-logo.svg"; 
+  const mapUrl = "https://share.google/6IwcxE51mRJIqsOSf";
   const phone= "+91-9156205253";
   const phone2 = "+91-9028475253";
   const email = "safe@tours.com";
@@ -23,14 +23,14 @@ export default function Footer() {
   const socialLinks = [
     {
       icon: <FaInstagram />,
-      href: "https://www.instagram.com",
+      href: "https://www.instagram.com/safe.toursandtravels?igsh=MWVibHV3am1jM3F1cw==",
       label: "Instagram",
     },
-    {
-      icon: <FaFacebookF />,
-      href: "https://www.facebook.com",
-      label: "Facebook",
-    },
+    // {
+    //   icon: <FaFacebookF />,
+    //   href: "https://www.facebook.com",
+    //   label: "Facebook",
+    // },
   ];
 
   return (

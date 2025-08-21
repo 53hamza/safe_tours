@@ -104,7 +104,7 @@ const BookingForm = () => {
   };
 
   return (
-    <section className="side-space section-space">
+    <section id="book-now" className="side-space section-space">
       <div className="booking-form-container services-inner side-space section-space">
         <h2 className="section-heading text-center">Need To Rent A Car?</h2>
         <div className="form-tabs">

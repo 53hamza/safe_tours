@@ -16,6 +16,7 @@ import BookingForm from "@/components/BookingForm";
 import fleets from "@/data/fleets";
 import { useState } from "react";
 import BookNowModal from "@/components/BookNowModal";
+import ContactUs from "@/components/ContactUs";
 
 const services = [
   {
@@ -134,7 +135,7 @@ export default function Home() {
               time, wherever you need to go.
             </p>
             <button onClick={() => openModal(null)} className="primary-button">
-              Book Your Ride Today
+              Enquire Now
             </button>
           </div>
         </div>
@@ -144,7 +145,15 @@ export default function Home() {
 
       <section id="about-us" className="about-us side-space">
         <div className="row">
-          <div className="col-md-6"></div>
+          <div className="col-md-6">
+            <div className="about-is-img">
+              <img
+                src="/images/about-us.png"
+                alt="About Us"
+                className="h-100 w-100"
+              />
+            </div>
+          </div>
           <div className="col-md-6">
             <h2 className="section-heading">About Us</h2>
             <h4>
@@ -267,6 +276,9 @@ export default function Home() {
 
       <ReviewsMasonryReact columns={3} />
 
+      {/* contact us form */}
+
+      <ContactUs />
       <WhatsAppButton />
 
       {/* <BookingModal
