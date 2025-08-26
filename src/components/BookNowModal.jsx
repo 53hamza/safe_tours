@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
 const BookNowModal = ({ isOpen, onClose, carSelected }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -75,6 +77,8 @@ const BookNowModal = ({ isOpen, onClose, carSelected }) => {
       return;
     }
 
+    setIsSubmitting(true);
+
     const payload = {
       ...formData,
       ...(carSelected ? { carType: carSelected } : {}),
@@ -102,6 +106,8 @@ const BookNowModal = ({ isOpen, onClose, carSelected }) => {
     } catch (err) {
       toast.error("Failed to submit booking");
       console.error(err);
+    } finally {
+      setIsSubmitting(false); // re-enable button
     }
   };
 
@@ -115,7 +121,7 @@ const BookNowModal = ({ isOpen, onClose, carSelected }) => {
       <div className="modal-dialog modal-dialog-centered" role="document">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">Book Now</h5>
+            <h5 className="modal-title">Enquire Now</h5>
             <button
               type="button"
               className="btn-close"
@@ -174,9 +180,14 @@ const BookNowModal = ({ isOpen, onClose, carSelected }) => {
               )}
 
               <div className="text-end">
-                <button type="submit" className="primary-button me-2">
-                  Submit
+                <button
+                  type="submit"
+                  className="primary-button me-2"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit"}
                 </button>
+
                 <button
                   type="button"
                   className="btn btn-secondary"
