@@ -31,7 +31,7 @@ export default async function handler(req, res) {
     await authenticateWithRetry();
 
     // Ensure the table exists only during local dev (not in production)
-    if (process.env.NODE_ENV !== "production" && !didSync) {
+    if (process.env.NODE_ENV == "production" && !didSync) {
       await sequelize.sync(); // You can use { alter: true } initially, then remove it
       didSync = true;
     }
