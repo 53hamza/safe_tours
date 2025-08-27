@@ -7,6 +7,7 @@ import fleets from "@/data/fleets";
 
 const BookingForm = () => {
   const [activeTab, setActiveTab] = useState("oneway");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     mobile: "",
@@ -73,6 +74,7 @@ const BookingForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
+      setIsSubmitting(true);
       try {
         const payload = { ...formData, bookingType: activeTab };
 
@@ -357,8 +359,12 @@ const BookingForm = () => {
           )}
 
           <div className="text-end">
-            <button type="submit" className="primary-button">
-              Submit Booking
+            <button
+              type="submit"
+              className="primary-button"
+              disabled={isSubmitting} // disable while submitting
+            >
+              {isSubmitting ? "Submitting..." : "Submit Booking"}
             </button>
           </div>
         </form>

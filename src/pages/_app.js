@@ -1,17 +1,26 @@
-import { useEffect } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import '@/styles/globals.css'
+import { useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "@/styles/globals.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import MainLayout from '@/components/MainLayout'
+import MainLayout from "@/components/MainLayout";
+import { useRouter } from "next/router";
 // import 'swiper/css';
 
 function MyApp({ Component, pageProps }) {
-  const Layout = Component.Layout || MainLayout
+  const Layout = Component.Layout || MainLayout;
+  const router = useRouter();
+  
+  useEffect(() => {
+    import("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
 
   useEffect(() => {
-    import('bootstrap/dist/js/bootstrap.bundle.min.js')
-  }, [])
+    if (router.pathname.startsWith("/admin")) {
+      import("@/styles/admin.css");
+      
+    }
+  }, [router.pathname]);
 
   return (
     <Layout>
@@ -21,4 +30,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp
+export default MyApp;

@@ -1,5 +1,3 @@
-// pages/api/auth/login.js
-import bcrypt from "bcryptjs";
 import User from "@/models/User";
 import { signToken } from "@/lib/jwt";
 
@@ -10,15 +8,14 @@ export default async function handler(req, res) {
 
   try {
     const user = await User.findOne({ where: { username } });
-    if (!user) return res.status(401).json({ message: "Invalid credentials" });
+    if (!user) return res.status(401).json({ message: "Invalid username" });
 
-    const validPassword = await bcrypt.compare(password, user.password);
-    if (!validPassword)
+    // Direct comparison
+    if (user.password !== password)
       return res.status(401).json({ message: "Invalid credentials" });
 
     const token = signToken(user);
 
-    // Send token in cookie
     res.setHeader(
       "Set-Cookie",
       `token=${token}; HttpOnly; Path=/; Max-Age=86400; SameSite=Strict;`
