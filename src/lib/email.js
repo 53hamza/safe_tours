@@ -20,7 +20,7 @@ export const sendBookingEmail = async (bookingData) => {
     subject = `New Enquiry from ${fullName}`;
     htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #333;">New Enquiry Received</h2>
+        <h2 style="color: #333;">New Enquiry Received !</h2>
         <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px;">
           <p><strong>Name:</strong> ${fullName}</p>
           <p><strong>Email:</strong> ${email}</p>
