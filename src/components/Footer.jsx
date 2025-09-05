@@ -10,7 +10,7 @@ export default function Footer() {
   const mapUrl = "https://share.google/6IwcxE51mRJIqsOSf";
   const phone= "+91-9156205253";
   const phone2 = "+91-9028475253";
-  const email = "safe@tours.com";
+  const email = "safe.tourstravels52@gmail.com";
 
   const quickLinks = [
     { label: "Home", href: "/" },
