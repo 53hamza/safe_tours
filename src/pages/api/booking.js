@@ -2,6 +2,7 @@ export const runtime = "nodejs";
 import sequelize from "@/lib/db";
 import Booking from "@/models/Booking";
 import User from "@/models/User";
+import { sendBookingEmail } from "@/lib/email";
 // Sync once per process in dev only
 let didSync = false;
 
@@ -47,6 +48,14 @@ export default async function handler(req, res) {
     }
 
     const booking = await Booking.create({ ...payload });
+
+    // Send email notification
+    try {
+      await sendBookingEmail(payload);
+    } catch (emailError) {
+      console.error('Failed to send email:', emailError);
+      // Don't fail the booking if email fails
+    }
 
     return res.status(201).json({
       success: true,
