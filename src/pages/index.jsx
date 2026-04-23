@@ -118,7 +118,7 @@ export default function Home() {
     <>
       <Head>
         <title>Safe Tours And Travels</title>
-        <meta name="description" content="Experience reliable cab services in Pune for airport transfers, Mumbai trips, and outstation travel at affordable rates with Safe Tours And Travels." />
+        <meta name="description" content="Experience reliable cab services in Pune for airport transfers, one-way pickup drop cabs, Mumbai trips, and outstation travel at affordable rates." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
